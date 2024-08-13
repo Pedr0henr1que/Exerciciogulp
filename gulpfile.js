@@ -5,10 +5,10 @@ const uglify = require('gulp-uglify');
 const obfuscate = require('gulp-obfuscate');
 const imagemin = require('gulp-imagemin');
 
-function comprimeImagens(){
-    return gulp.src('./source/images/**/*')
+function comprimeImagens() {
+    return gulp.src('source/images/**/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('./build/images'))
+        .pipe(gulp.dest('build/images'));
 }
 
 function comprimeJavascript(){
@@ -34,3 +34,5 @@ exports.watch = () => {
 }
 exports.javascript = comprimeJavascript;
 exports.images = comprimeImagens;
+exports.default = gulp.series(comprimeImagens);
+
